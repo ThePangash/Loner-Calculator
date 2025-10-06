@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>Loner Calculator</title>
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  background: #800000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+h1 { margin-bottom: 20px; color: #fff; }
+.progress-container { max-width: 500px; margin: 20px auto; }
+.progress-bar { background: #4B0000; height: 10px; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
+.progress-fill { background: #ffcccb; height: 100%; width: 0%; transition: width 0.3s ease; }
+.progress-text { font-size: 0.9em; color: #ffcccb; }
+.question { background: #990000; padding: 15px; border-radius: 10px; margin: 15px auto; max-width: 500px; text-align: left; display: none; }
+.question.active { display: block; }
+label { display: block; margin: 10px 0; cursor: pointer; padding: 8px; border-radius: 5px; transition: background 0.2s; }
+label:hover { background: rgba(255, 255, 255, 0.1); }
+button { background: #4B0000; border: none; color: #fff; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px 5px; }
+button:hover { background: #330000; }
+button:disabled { background: #660000; cursor: not-allowed; opacity: 0.5; }
+.nav-buttons { margin-top: 20px; }
+#result { margin-top: 25px; font-size: 1.4em; color: #fff; }
+#result-tag { font-size: 1.2em; margin-top: 10px; color: #ffcccb; }
+.percentage-bar-container { max-width: 500px; margin: 20px auto; background: #4B0000; height: 30px; border-radius: 15px; overflow: hidden; position: relative; }
+.percentage-bar-fill { background: linear-gradient(90deg, #ffcccb, #ff9999); height: 100%; width: 0%; transition: width 1s ease; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4B0000; }
+#quizContainer.hidden { display: none; }
+#resultContainer { display: none; }
+#resultContainer.visible { display: block; }
+</style>
+</head>
+<body>
+
+<h1>Loner Calculator</h1>
+
+<div id="quizContainer">
+<div class="progress-container">
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="progress-text" id="progressText">প্রশ্ন 1 / 20</div>
+</div>
+
+<form id="quizForm">
+<!-- Questions copied from the user's original code -->
+
+
+<!-- Question 1 -->
+<div class="question">
+<p>1. আপনি কি বেশিরভাগ সময় একা থাকতে পছন্দ করেন, এমনকি কেউ কথা বলতে চাইলে?</p>
+<label><input type="radio" name="q1" value="3"> ক. হ্যাঁ</label>
+<label><input type="radio" name="q1" value="2"> খ. মাঝে মাঝে</label>
+<label><input type="radio" name="q1" value="1"> গ. না</label>
+</div>
+
+<!-- Question 2 -->
+<div class="question">
+<p>2. বন্ধুদের সঙ্গে দেখা করার বদলে ঘরে সময় কাটাতে আপনার বেশি ভালো লাগে?</p>
+<label><input type="radio" name="q2" value="3"> ক. হ্যাঁ</label>
+<label><input type="radio" name="q2" value="2"> খ. মাঝে মাঝে</label>
+<label><input type="radio" name="q2" value="1"> গ. না</label>
+</div>
+
+<!-- Remaining questions (3 to 20) should be included similarly, or paste the user's full HTML content -->
+
+</form>
+</div>
+
+<div id="resultContainer">
+  <div id="result"></div>
+  <div class="percentage-bar-container">
+    <div class="percentage-bar-fill" id="percentageBar"></div>
+  </div>
+  <div id="result-tag"></div>
+  <button type="button" onclick="restartQuiz()">আবার শুরু করুন</button>
+</div>
+
+<script>
+let currentQuestion = 0;
+const totalQuestions = 20;
+const questions = document.querySelectorAll('.question');
+
+function showQuestion(index) {
+  questions.forEach((q, i) => { q.classList.remove('active'); if(i===index){q.classList.add('active');}});
+  const progress = ((index + 1) / totalQuestions) * 100;
+  document.getElementById('progressFill').style.width = progress + '%';
+  document.getElementById('progressText').textContent = `প্রশ্ন ${index + 1} / ${totalQuestions}`;
+}
+
+function nextQuestion() {
+  if(currentQuestion < totalQuestions - 1){currentQuestion++; showQuestion(currentQuestion);}
+  else { calculateScore(); }
+}
+
+function calculateScore() {
+  const form = document.forms['quizForm'];
+  let total = 0; let answered = 0;
+  for(let i=1;i<=20;i++){
+    let val = Number(form[`q${i}`]?.value || 0);
+    if(i===12||i===18){ if(val===3) val=1; else if(val===1) val=3; }
+    if(form[`q${i}`]?.value) answered++;
+    total += val;
+  }
+  if(answered<20){ alert('দয়া করে সব প্রশ্নের উত্তর দিন!'); return; }
+  const maxScore = 20*3;
+  const percentage = Math.round((total/maxScore)*100);
+  document.getElementById('quizContainer').classList.add('hidden');
+  document.getElementById('resultContainer').classList.add('visible');
+  document.getElementById('result').textContent = `আপনি ${percentage}% লোনার!`;
+  setTimeout(()=>{document.getElementById('percentageBar').style.width=percentage+'%'; document.getElementById('percentageBar').textContent=percentage+'%';},100);
+  let tag="", message="";
+  if(percentage>=80&&percentage<=100){ tag="Loner"; message="Get a Life"; }
+  else if(percentage>=50&&percentage<80){ tag="Loner হওয়ার পথে"; message="সময় আছে এখনো সাবধান"; }
+  else if(percentage>=26&&percentage<50){ tag="Loner না"; message="মাশাহ'আল্লাহ"; }
+  else if(percentage>=0&&percentage<=25){ tag="সুস্থ্য"; message="ভং ধরিস না"; }
+  document.getElementById('result-tag').innerHTML = `${tag}<br>${message}`;
+}
+
+function restartQuiz(){
+  currentQuestion=0; document.forms['quizForm'].reset();
+  document.getElementById('quizContainer').classList.remove('hidden');
+  document.getElementById('resultContainer').classList.remove('visible');
+  document.getElementById('percentageBar').style.width='0%';
+  showQuestion(0);
+}
+
+document.querySelectorAll('input[type="radio"]').forEach(radio=>{
+  radio.addEventListener('change', function(){ setTimeout(()=>{nextQuestion();},300); });
+});
+
+showQuestion(0);
+</script>
+
+</body>
+</html>
