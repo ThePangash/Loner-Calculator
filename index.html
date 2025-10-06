@@ -6,32 +6,140 @@
 <style>
 body {
   font-family: 'Arial', sans-serif;
-  background: #800000;
+  background: #800000; /* Maroon shade */
   color: #fff;
   text-align: center;
   padding: 20px;
   margin: 0;
 }
-h1 { margin-bottom: 20px; color: #fff; }
-.progress-container { max-width: 500px; margin: 20px auto; }
-.progress-bar { background: #4B0000; height: 10px; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
-.progress-fill { background: #ffcccb; height: 100%; width: 0%; transition: width 0.3s ease; }
-.progress-text { font-size: 0.9em; color: #ffcccb; }
-.question { background: #990000; padding: 15px; border-radius: 10px; margin: 15px auto; max-width: 500px; text-align: left; display: none; }
-.question.active { display: block; }
-label { display: block; margin: 10px 0; cursor: pointer; padding: 8px; border-radius: 5px; transition: background 0.2s; }
-label:hover { background: rgba(255, 255, 255, 0.1); }
-button { background: #4B0000; border: none; color: #fff; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px 5px; }
-button:hover { background: #330000; }
-button:disabled { background: #660000; cursor: not-allowed; opacity: 0.5; }
-.nav-buttons { margin-top: 20px; }
-#result { margin-top: 25px; font-size: 1.4em; color: #fff; }
-#result-tag { font-size: 1.2em; margin-top: 10px; color: #ffcccb; }
-.percentage-bar-container { max-width: 500px; margin: 20px auto; background: #4B0000; height: 30px; border-radius: 15px; overflow: hidden; position: relative; }
-.percentage-bar-fill { background: linear-gradient(90deg, #ffcccb, #ff9999); height: 100%; width: 0%; transition: width 1s ease; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4B0000; }
-#quizContainer.hidden { display: none; }
-#resultContainer { display: none; }
-#resultContainer.visible { display: block; }
+
+h1 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.progress-container {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.progress-bar {
+  background: #4B0000;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  background: #ffcccb;
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.9em;
+  color: #ffcccb;
+}
+
+.question {
+  background: #990000; /* Slightly lighter maroon */
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px auto;
+  max-width: 500px;
+  text-align: left;
+  display: none;
+}
+
+.question.active {
+  display: block;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+label:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+button {
+  background: #4B0000; /* Dark Maroon */
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 5px;
+}
+
+button:hover {
+  background: #330000;
+}
+
+button:disabled {
+  background: #660000;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.nav-buttons {
+  margin-top: 20px;
+}
+
+#result {
+  margin-top: 25px;
+  font-size: 1.4em;
+  color: #fff;
+}
+
+#result-tag {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: #ffcccb; /* light pinkish for tag */
+}
+
+.percentage-bar-container {
+  max-width: 500px;
+  margin: 20px auto;
+  background: #4B0000;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.percentage-bar-fill {
+  background: linear-gradient(90deg, #ffcccb, #ff9999);
+  height: 100%;
+  width: 0%;
+  transition: width 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #4B0000;
+}
+
+#quizContainer.hidden {
+  display: none;
+}
+
+#resultContainer {
+  display: none;
+}
+
+#resultContainer.visible {
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -47,8 +155,6 @@ button:disabled { background: #660000; cursor: not-allowed; opacity: 0.5; }
 </div>
 
 <form id="quizForm">
-<!-- Questions copied from the user's original code -->
-
 
 <!-- Question 1 -->
 <div class="question">
@@ -66,7 +172,149 @@ button:disabled { background: #660000; cursor: not-allowed; opacity: 0.5; }
 <label><input type="radio" name="q2" value="1"> গ. না</label>
 </div>
 
-<!-- Remaining questions (3 to 20) should be included similarly, or paste the user's full HTML content -->
+<!-- Question 3 -->
+<div class="question">
+<p>3. পরিবারের অনুষ্ঠানে বা সামাজিক সমাবেশে গেলে আপনি কি দ্রুত ক্লান্ত বা অস্বস্তি বোধ করেন?</p>
+<label><input type="radio" name="q3" value="3"> ক. হ্যাঁ</label>
+<label><input type="radio" name="q3" value="2"> খ. কিছুটা</label>
+<label><input type="radio" name="q3" value="1"> গ. না</label>
+</div>
+
+<!-- Question 4 -->
+<div class="question">
+<p>4. আপনার কাছের বন্ধুর সংখ্যা কতজন, যাদের সঙ্গে আপনি নিয়মিত কথা বলেন?</p>
+<label><input type="radio" name="q4" value="3"> ক. ০–১ জন</label>
+<label><input type="radio" name="q4" value="2"> খ. ২–৩ জন</label>
+<label><input type="radio" name="q4" value="1"> গ. ৪ বা তার বেশি</label>
+</div>
+
+<!-- Question 5 -->
+<div class="question">
+<p>5. যখন আপনি দুঃখিত বা চিন্তিত থাকেন, তখন কাউকে জানানোর অভ্যাস আছে?</p>
+<label><input type="radio" name="q5" value="3"> ক. না</label>
+<label><input type="radio" name="q5" value="2"> খ. মাঝে মাঝে</label>
+<label><input type="radio" name="q5" value="1"> গ. হ্যাঁ</label>
+</div>
+
+<!-- Question 6 -->
+<div class="question">
+<p>6. আপনি কি সোশ্যাল মিডিয়ায় খুব সক্রিয় নন বা পোস্ট দিতে অনীহা বোধ করেন?</p>
+<label><input type="radio" name="q6" value="3"> ক. হ্যাঁ</label>
+<label><input type="radio" name="q6" value="2"> খ. কখনও কখনও</label>
+<label><input type="radio" name="q6" value="1"> গ. না</label>
+</div>
+
+<!-- Question 7 -->
+<div class="question">
+<p>7. আপনি কি মনে করেন, মানুষ সাধারণত আপনাকে ভুল বোঝে?</p>
+<label><input type="radio" name="q7" value="3"> ক. হ্যাঁ</label>
+<label><input type="radio" name="q7" value="2"> খ. মাঝে মাঝে</label>
+<label><input type="radio" name="q7" value="1"> গ. না</label>
+</div>
+
+<!-- Question 8 -->
+<div class="question">
+<p>8. বাইরে কোথাও যাওয়ার আগে কি আপনি শেষ মুহূর্তে "যাবো না" সিদ্ধান্ত নেন?</p>
+<label><input type="radio" name="q8" value="3"> ক. প্রায়ই</label>
+<label><input type="radio" name="q8" value="2"> খ. মাঝে মাঝে</label>
+<label><input type="radio" name="q8" value="1"> গ. খুব কম</label>
+</div>
+
+<!-- Question 9 -->
+<div class="question">
+<p>9. একা সময় কাটানোর পর আপনি কি নিজেকে শান্ত ও রিল্যাক্সড মনে করেন?</p>
+<label><input type="radio" name="q9" value="3"> ক. সবসময়</label>
+<label><input type="radio" name="q9" value="2"> খ. কখনও কখনও</label>
+<label><input type="radio" name="q9" value="1"> গ. না</label>
+</div>
+
+<!-- Question 10 -->
+<div class="question">
+<p>10. যদি একদিন কেউই আপনার সাথে কথা না বলে, আপনি কেমন অনুভব করবেন?</p>
+<label><input type="radio" name="q10" value="3"> ক. স্বস্তি লাগবে</label>
+<label><input type="radio" name="q10" value="2"> খ. তেমন কিছু না</label>
+<label><input type="radio" name="q10" value="1"> গ. খারাপ লাগবে</label>
+</div>
+
+<!-- Question 11 -->
+<div class="question">
+<p>11. আপনাকে কেউ দুঃখ দিলে কী অনুভূত হয়?</p>
+<label><input type="radio" name="q11" value="3"> ক. কান্না পায়</label>
+<label><input type="radio" name="q11" value="2"> খ. খিদা লাগে</label>
+<label><input type="radio" name="q11" value="1"> গ. রাগ লাগে</label>
+</div>
+
+<!-- Question 12 (reversed) -->
+<div class="question">
+<p>12. আপনি সবার কথা শুনেন কিন্তু আপনার কথা শোনার কেউ নেই?</p>
+<label><input type="radio" name="q12" value="1"> ক. আছে</label>
+<label><input type="radio" name="q12" value="2"> খ. আছে আবার নাই</label>
+<label><input type="radio" name="q12" value="3"> গ. নাই</label>
+</div>
+
+<!-- Question 13 -->
+<div class="question">
+<p>13. কেউ যদি হঠাৎ আপনাকে ভুল বোঝে, তখন আপনি কী করেন?</p>
+<label><input type="radio" name="q13" value="3"> ক. চুপ থাকি</label>
+<label><input type="radio" name="q13" value="2"> খ. ব্যাখ্যা দেওয়ার চেষ্টা করি</label>
+<label><input type="radio" name="q13" value="1"> গ. সম্পর্কটা ছেড়ে দিই</label>
+</div>
+
+<!-- Question 14 -->
+<div class="question">
+<p>14. রাতে ঘুমাতে যাওয়ার আগে আপনি কী করেন?</p>
+<label><input type="radio" name="q14" value="3"> ক. রিল দেখেন</label>
+<label><input type="radio" name="q14" value="2"> খ. স্যাড গান শুনেন</label>
+<label><input type="radio" name="q14" value="1"> গ. হাল্কা মুতে ঘুমিয়ে পড়েন</label>
+</div>
+
+<!-- Question 15 -->
+<div class="question">
+<p>15. এমন কি হয়েছে আপনি কখনও ইচ্ছা করেও কারও সঙ্গে কথা বলেননি, শুধু শান্তি পাওয়ার জন্য?</p>
+<label><input type="radio" name="q15" value="3"> ক. হ্যাঁ, প্রায়ই</label>
+<label><input type="radio" name="q15" value="2"> খ. মাঝে মাঝে</label>
+<label><input type="radio" name="q15" value="1"> গ. না</label>
+</div>
+
+<!-- Question 16 -->
+<div class="question">
+<p>16. যখন কেউ আপনার সঙ্গে খারাপ ব্যবহার করে, আপনি কীভাবে সামলান?</p>
+<label><input type="radio" name="q16" value="3"> ক. কিছু বলি না</label>
+<label><input type="radio" name="q16" value="2"> খ. মনে মনে ভাবি "আমি দূরে থাকব"</label>
+<label><input type="radio" name="q16" value="1"> গ. সরাসরি বলে দিই</label>
+</div>
+
+<!-- Question 17 -->
+<div class="question">
+<p>17. আপনি কি মনে করেন, আপনার জীবনে কেউ নেই যাকে আপনি পুরোপুরি বিশ্বাস করতে পারেন?</p>
+<label><input type="radio" name="q17" value="3"> ক. হ্যাঁ</label>
+<label><input type="radio" name="q17" value="2"> খ. নিশ্চিত নই</label>
+<label><input type="radio" name="q17" value="1"> গ. না</label>
+</div>
+
+<!-- Question 18 (reversed) -->
+<div class="question">
+<p>18. মন খারাপের সময় আপনি কী গান শোনেন?</p>
+<label><input type="radio" name="q18" value="1"> ক. স্যাড হিন্দি গান শোনেন</label>
+<label><input type="radio" name="q18" value="2"> খ. দেবের গান শুনি</label>
+<label><input type="radio" name="q18" value="3"> গ. বাংলা স্যাড গান শোনেন</label>
+</div>
+
+<!-- Question 19 -->
+<div class="question">
+<p>19. আপনি কি কখনও এমন অনুভব করেন যে আপনি কোথাও মানিয়ে নিতে পারেন না?</p>
+<label><input type="radio" name="q19" value="3"> ক. প্রায়ই</label>
+<label><input type="radio" name="q19" value="2"> খ. মাঝে মাঝে</label>
+<label><input type="radio" name="q19" value="1"> গ. না</label>
+</div>
+
+<!-- Question 20 -->
+<div class="question">
+<p>20. মানুষ যখন আপনাকে উপেক্ষা করে, তখন আপনার প্রতিক্রিয়া কী হয়?</p>
+<label><input type="radio" name="q20" value="3"> ক. ভাবি, "ঠিক আছে, আমি একাই ভালো"</label>
+<label><input type="radio" name="q20" value="2"> খ. কষ্ট পাই</label>
+<label><input type="radio" name="q20" value="1"> গ. কিছুই মনে করি না</label>
+</div>
 
 </form>
 </div>
@@ -86,51 +334,95 @@ const totalQuestions = 20;
 const questions = document.querySelectorAll('.question');
 
 function showQuestion(index) {
-  questions.forEach((q, i) => { q.classList.remove('active'); if(i===index){q.classList.add('active');}});
+  questions.forEach((q, i) => {
+    q.classList.remove('active');
+    if (i === index) {
+      q.classList.add('active');
+    }
+  });
+
   const progress = ((index + 1) / totalQuestions) * 100;
   document.getElementById('progressFill').style.width = progress + '%';
   document.getElementById('progressText').textContent = `প্রশ্ন ${index + 1} / ${totalQuestions}`;
 }
 
 function nextQuestion() {
-  if(currentQuestion < totalQuestions - 1){currentQuestion++; showQuestion(currentQuestion);}
-  else { calculateScore(); }
+  if (currentQuestion < totalQuestions - 1) {
+    currentQuestion++;
+    showQuestion(currentQuestion);
+  } else {
+    calculateScore();
+  }
 }
 
 function calculateScore() {
   const form = document.forms['quizForm'];
-  let total = 0; let answered = 0;
-  for(let i=1;i<=20;i++){
+  let total = 0;
+  let answered = 0;
+
+  for (let i = 1; i <= 20; i++) {
     let val = Number(form[`q${i}`]?.value || 0);
-    if(i===12||i===18){ if(val===3) val=1; else if(val===1) val=3; }
-    if(form[`q${i}`]?.value) answered++;
+
+    if (i === 12 || i === 18) {
+      if (val === 3) val = 1;
+      else if (val === 1) val = 3;
+    }
+
+    if (form[`q${i}`]?.value) answered++;
     total += val;
   }
-  if(answered<20){ alert('দয়া করে সব প্রশ্নের উত্তর দিন!'); return; }
+
+  if (answered < 20) {
+    alert('দয়া করে সব প্রশ্নের উত্তর দিন!');
+    return;
+  }
+
   const maxScore = 20*3;
-  const percentage = Math.round((total/maxScore)*100);
+  const percentage = Math.round((total / maxScore) * 100);
+  
   document.getElementById('quizContainer').classList.add('hidden');
   document.getElementById('resultContainer').classList.add('visible');
+  
   document.getElementById('result').textContent = `আপনি ${percentage}% লোনার!`;
-  setTimeout(()=>{document.getElementById('percentageBar').style.width=percentage+'%'; document.getElementById('percentageBar').textContent=percentage+'%';},100);
-  let tag="", message="";
-  if(percentage>=80&&percentage<=100){ tag="Loner"; message="Get a Life"; }
-  else if(percentage>=50&&percentage<80){ tag="Loner হওয়ার পথে"; message="সময় আছে এখনো সাবধান"; }
-  else if(percentage>=26&&percentage<50){ tag="Loner না"; message="মাশাহ'আল্লাহ"; }
-  else if(percentage>=0&&percentage<=25){ tag="সুস্থ্য"; message="ভং ধরিস না"; }
+  
+  setTimeout(() => {
+    document.getElementById('percentageBar').style.width = percentage + '%';
+    document.getElementById('percentageBar').textContent = percentage + '%';
+  }, 100);
+
+  let tag = "", message = "";
+  if (percentage >= 80 && percentage <= 100) {
+    tag = "Loner";
+    message = "Get a Life";
+  } else if (percentage >= 50 && percentage < 80) {
+    tag = "Loner হওয়ার পথে";
+    message = "সময় আছে এখনো সাবধান";
+  } else if (percentage >= 26 && percentage < 50) {
+    tag = "Loner না";
+    message = "মাশাহ'আল্লাহ";
+  } else if (percentage >= 0 && percentage <= 25) {
+    tag = "সুস্থ্য";
+    message = "ভং ধরিস না";
+  }
+
   document.getElementById('result-tag').innerHTML = `${tag}<br>${message}`;
 }
 
-function restartQuiz(){
-  currentQuestion=0; document.forms['quizForm'].reset();
+function restartQuiz() {
+  currentQuestion = 0;
+  document.forms['quizForm'].reset();
   document.getElementById('quizContainer').classList.remove('hidden');
   document.getElementById('resultContainer').classList.remove('visible');
-  document.getElementById('percentageBar').style.width='0%';
+  document.getElementById('percentageBar').style.width = '0%';
   showQuestion(0);
 }
 
-document.querySelectorAll('input[type="radio"]').forEach(radio=>{
-  radio.addEventListener('change', function(){ setTimeout(()=>{nextQuestion();},300); });
+document.querySelectorAll('input[type="radio"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    setTimeout(() => {
+      nextQuestion();
+    }, 300);
+  });
 });
 
 showQuestion(0);
